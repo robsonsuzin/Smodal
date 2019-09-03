@@ -1,0 +1,30 @@
+{
+  "name": "robsonsuzin/smodal",
+  "description": "An easy way to work with modals",
+  "keywords": [
+    "SuzinCode",
+    "Smodal",
+    "Smodals",
+    "modal",
+    "modais",
+    "Janela",
+    "Janelas"
+  ],
+  "homepage": "https://www.suzincode.com.br",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Robson Suzin",
+      "email": "robsonsuzin@hotmail.com",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": "^7.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "SuzinCode\\Smodal\\": "src"
+    }
+  }
+}
