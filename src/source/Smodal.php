@@ -366,6 +366,32 @@ class Smodal
 
     /**
      * @param $options
+     * @return string|null
+     */
+    private function convertStringForeach($options): ?string
+    {
+        $result = '';
+        foreach ($options as $option) {
+            foreach ($option as $subkey => $subvalue) {
+                if (is_int($subkey)) {
+                    $result .= "{$subvalue}|";
+                } else {
+                    if (!is_array($subvalue)) {
+                        $result .= "{$subkey}::{$subvalue}|";
+                    } else {
+                        foreach ($subvalue as $ssbkey => $ssvalue) {
+
+                            $result .= "{$subkey}::{$ssbkey}=={$ssvalue}|";
+                        }
+                    }
+                }
+            }
+        }
+        return $result;
+    }
+
+    /**
+     * @param $options
      * @return string
      */
     private function convertString($options): string
@@ -375,22 +401,7 @@ class Smodal
         if (!is_array($options)) {
             $result .= $options;
         } else {
-            foreach ($options as $option) {
-                foreach ($option as $subkey => $subvalue) {
-                    if (is_int($subkey)) {
-                        $result .= "{$subvalue}|";
-                    } else {
-                        if (!is_array($subvalue)) {
-                            $result .= "{$subkey}::{$subvalue}|";
-                        } else {
-                            foreach ($subvalue as $ssbkey => $ssvalue) {
-
-                                $result .= "{$subkey}::{$ssbkey}=={$ssvalue}|";
-                            }
-                        }
-                    }
-                }
-            }
+            $result .= $this->convertStringForeach($options);
             $result = substr($result, 0, -1);
         }
 

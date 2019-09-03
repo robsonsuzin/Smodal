@@ -1,0 +1,100 @@
+/*APP MODAL*/
+.app_modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    padding: var(--area-box) 0;
+    background: rgba(100, 100, 100, 0.7);
+    z-index: var(--index-modal);
+    display: none;
+    overflow-y: auto;
+}
+
+.app_modal .message {
+    text-align: center;
+    margin-bottom: var(--area-normal);
+}
+
+.app_modal_close {
+    position: absolute;
+    right: 0;
+    top: 0 !important;
+    background-color: #fff;
+    color: var(--color-default);
+
+    font-size: var(--font-normal);
+    font-weight: var(--weight-bold);
+
+}
+
+.app_modal_close:hover {
+    color: var(--color-red);
+}
+
+.app_modal_print {
+    position: absolute;
+    right: 20px;
+    top: 0;
+    background-color: #fff;
+    color: var(--color-default);
+
+    font-size: var(--font-normal);
+    font-weight: var(--weight-bold);
+}
+
+.app_modal_print:hover {
+    color: var(--color-blue);
+}
+
+.app_modal_box {
+    display: none;
+    position: relative;
+    margin: auto;
+    width: 500px;
+    max-width: 94%;
+    padding: calc(var(--area-box) * 1.3);
+    background: #ffffff;
+
+    -webkit-border-radius: var(--radius-medium);
+    -moz-border-radius: var(--radius-medium);
+    border-radius: var(--radius-medium);
+}
+
+.app_modal_box .title {
+    font-size: var(--font-large);
+    font-weight: var(--weight-light);
+    color: var(--color-default);
+    padding-bottom: var(--area-normal);
+    margin: 0 0 15px 0;
+}
+
+.app_modal_box button {
+    width: 100%;
+}
+
+/* MODAL DELETE */
+.app_modal_box .title {
+    font-size: var(--font-medium);
+    font-weight: var(--weight-light);
+    line-height: 1.5em;
+    text-align: center;
+    border-bottom: none;
+    margin: 0;
+}
+
+.app_modal_box .js-icon {
+    font-size: 5em;
+}
+
+.app_modal_box a {
+    flex-basis: 100%;
+    text-align: center;
+    margin: 20px;
+    text-decoration: none;
+}
+
+.app_modal .main_content_app_header {
+    margin-bottom: 20px;
+}
