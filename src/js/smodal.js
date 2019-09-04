@@ -25,11 +25,11 @@
 * sdebug = true
 */
 (function ($) {
-    $.fn.smodal = function (options) {
+    $.fn.smodal = function (options, template = []) {
 
         thisClass = this;
 
-        if (!options) {
+        if (!options || options.length === 0) {
             options = [];
             $(this).each(function () {
                 $.each(this.attributes, function () {
@@ -66,21 +66,7 @@
         // Objeto da Modal
         objectmodal = $(`.${modalname}`);
 
-        if (options.smodaltype === 'info') {
-            options.smodalhtml = `<div class="js-icon icon-notext color-blue icon-info al-center"></div>
-                <h3 class="js-title title"></h3>
-                <div class="ds-flex text-center" >
-                <a class="js-cancel btn btn-normal btn-green icon-check radius transition" smodalclose="true" href="#">OK</a>
-                <a class="js-confirm btn btn-normal btn-blue icon-pencil radius transition" smodalclose="true" href="#" >Editar</a></div>`;
-        }
-
-        if (options.smodaltype === 'delete' || options.smodaltype === 'delete_photo') {
-            options.smodalhtml = `<div class="js-icon icon-notext color-yellow icon-warning al-center"></div>
-                <h3 class="js-title title"></h3>
-                <div class="ds-flex text-center" >
-                <a class="js-cancel btn btn-normal btn-default icon-ban radius transition" smodalclose="true" href="#">Cancelar</a>
-                <a class="js-confirm btn btn-normal btn-red icon-trash radius transition" smodalclose="true" href="#" >Apagar</a></div>`;
-        }
+        options.smodalhtml = template[options.smodaltemplate];
 
         if (options.smodalprint === true) {
             options.smodalprint = `<a class="icon-notext icon-print app_modal_print" href="#" onClick="window.print();"></a>`;
@@ -89,7 +75,7 @@
         }
 
         defaulthtml = `<div class="app_modal ${modalname}" smodalclose="true"
-            style="left: 0; top: 0;right: 0;bottom: 0; background: rgba(100, 100, 100, 0.5); z-index:${modalzindex};">
+            style="z-index:${modalzindex};">
             <div class="app_modal_box" style="max-width: 94% !important;">
             <div><a class="app_modal_close icon-times icon-notext" smodalclose="true" style="top: 5px; right: 0;"
             href="#"></a>${options.smodalprint}</div>${options.smodalhtml}</div></div>`;

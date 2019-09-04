@@ -21,7 +21,7 @@ class Smodal
     /**
      * @var
      */
-    private $smodaltype;
+    private $smodaltemplate;
     /**
      * @var
      */
@@ -85,11 +85,35 @@ class Smodal
     private $resultstring;
 
     /**
+     * @var
+     */
+    private $methods;
+
+    /**
      * Smodal constructor.
      */
     public function __construct(string $smodalname = 'app_modal_dialog')
     {
         $this->setSmodalname($smodalname);
+
+        $this->methods = [
+            'smodalname',
+            'smodaltemplate',
+            'smodalhtml',
+            'smodalwidth',
+            'smodalprint',
+            'smodaleffect',
+            'smodaldata',
+            'sadddata',
+            'sremovedata',
+            'saddattr',
+            'sremoveattr',
+            'saddhtml',
+            'saddclass',
+            'sremoveclass',
+            'sremoveelement',
+            'saddcss'
+        ];
     }
 
     /**
@@ -113,12 +137,23 @@ class Smodal
     }
 
     /**
-     * @param string $smodaltype
+     * @param string $smodaltemplate
      * @return Smodal
      */
-    public function setSmodaltype(string $smodaltype): Smodal
+    public function setSmodaltemplate(string $smodaltemplate): Smodal
     {
-        $this->smodaltype = $smodaltype;
+        $this->smodaltemplate = $smodaltemplate;
+        return $this;
+    }
+
+    /**
+     * @param string $smodaltemplate
+     * @return Smodal
+     * Função para ser retrocompativel
+     */
+    public function setSmodaltype(string $smodaltemplate): Smodal
+    {
+        $this->smodaltemplate = $smodaltemplate;
         return $this;
     }
 
@@ -304,23 +339,9 @@ class Smodal
      */
     public function renderString(): string
     {
-        $this->setResultstring($this->getResultstring() . $this->createString('smodalname'));
-        $this->setResultstring($this->getResultstring() . $this->createString('smodaltype'));
-        $this->setResultstring($this->getResultstring() . $this->createString('smodalhtml'));
-        $this->setResultstring($this->getResultstring() . $this->createString('smodalwidth'));
-        $this->setResultstring($this->getResultstring() . $this->createString('smodalprint'));
-        $this->setResultstring($this->getResultstring() . $this->createString('smodaleffect'));
-        $this->setResultstring($this->getResultstring() . $this->createString('smodaldata'));
-        $this->setResultstring($this->getResultstring() . $this->createString('sadddata'));
-        $this->setResultstring($this->getResultstring() . $this->createString('sremovedata'));
-        $this->setResultstring($this->getResultstring() . $this->createString('saddattr'));
-        $this->setResultstring($this->getResultstring() . $this->createString('sremoveattr'));
-        $this->setResultstring($this->getResultstring() . $this->createString('saddhtml'));
-        $this->setResultstring($this->getResultstring() . $this->createString('saddclass'));
-        $this->setResultstring($this->getResultstring() . $this->createString('sremoveclass'));
-        $this->setResultstring($this->getResultstring() . $this->createString('sremoveelement'));
-        $this->setResultstring($this->getResultstring() . $this->createString('saddcss'));
-
+        foreach ($this->methods as $method) {
+            $this->setResultstring($this->getResultstring() . $this->createString($method));
+        }
         return $this->getResultstring();
     }
 
@@ -329,25 +350,13 @@ class Smodal
      */
     public function renderObject(): object
     {
-        $smodal = new \stdClass();
-        $smodal->smodalname = $this->convertString($this->smodalname);
-        $smodal->smodaltype = $this->convertString($this->smodaltype);
-        $smodal->smodalhtml = $this->convertString($this->smodalhtml);
-        $smodal->smodalwidth = $this->convertString($this->smodalwidth);
-        $smodal->smodalprint = $this->convertString($this->smodalprint);
-        $smodal->smodaleffect = $this->convertString($this->smodaleffect);
-        $smodal->smodaldata = $this->convertString($this->smodaldata);
-        $smodal->sadddata = $this->convertString($this->sadddata);
-        $smodal->sremovedata = $this->convertString($this->sremovedata);
-        $smodal->saddattr = $this->convertString($this->saddattr);
-        $smodal->sremoveattr = $this->convertString($this->sremoveattr);
-        $smodal->saddhtml = $this->convertString($this->saddhtml);
-        $smodal->saddclass = $this->convertString($this->saddclass);
-        $smodal->sremoveclass = $this->convertString($this->sremoveclass);
-        $smodal->sremoveelement = $this->convertString($this->sremoveelement);
-        $smodal->saddcss = $this->convertString($this->saddcss);
-        $smodal->sdebug = $this->sdebug;
-        return $smodal;
+        $objectSmodal = new \stdClass();
+
+        foreach ($this->methods as $method) {
+            $objectSmodal->$method = $this->convertString($this->$method);
+        }
+        $objectSmodal->sdebug = $this->sdebug;
+        return $objectSmodal;
     }
 
     /**

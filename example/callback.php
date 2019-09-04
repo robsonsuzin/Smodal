@@ -1,13 +1,14 @@
 <?php
-require(__DIR__ . "/../src/source/Smodal.php");
+require(__DIR__ . "/../src/Smodal.php");
 
 $id = filter_var($_POST['id'], FILTER_VALIDATE_INT);
 
-$smodalcallback = (new \SuzinCode\Smodal\Smodal())
+$smodalcallback = (new \RobsonSuzin\Smodal\Smodal())
     ->setSmodalname('modal_teste')
     ->setSmodalwidth(400)
-    ->setSmodaltype('info')
+    ->setSmodaltemplate('delete')
     ->setSaddhtml('js-title', $id . ' Modal sendo aberto pelo callback do Ajax :)')
+    ->setSaddhtml('js-cancel', ' Abrir mais uma modal :)')
     ->setSremoveelement('js-confirm')
     ->setSremoveclass('js-cancel', 'icon-ban')
     ->setSremoveattr('js-cancel', 'smodalclose')

@@ -29,10 +29,6 @@
     --color-blue: #39AED9;
     --color-yellow: #F5B946;
     --color-red: #D94352;
-    --color-fsphp: #1D2025;
-    --color-cloud: #f2f8f9;
-    --color-silver: #808285;
-    --color-grey: #f2f2f2;
 
     --weight-light: 300;
     --weight-normal: 400;
@@ -44,24 +40,13 @@
     --hover-color-blue: #66D4F1;
     --hover-color-yellow: #FCD277;
     --hover-color-red: #F76C82;
-    --hover-color-silver: #58595b;
     --hover-duration: 0.3s;
-
-    --gradient-green: linear-gradient(to right, #5dc6c6 0%, #54b6d7 50%, #589fd6 100%);
-    --gradient-blue: linear-gradient(to right, #17EAD9 0%, #6078EA 50%, #17EAD9 100%);
-    --gradient-red: linear-gradient(to right, #622744 0%, #C53364 50%, #622744 100%);
-    --gradient-yellow: linear-gradient(to right, #FCE38A 0%, #F38181 50%, #FCE38A 100%);
 
     --radius-small: 2px;
     --radius-normal: 5px;
     --radius-medium: 10px;
     --radius-large: 20px;
     --radius-round: 50%;
-
-    --index-back: -1;
-    --index-fold: 2;
-    --index-menu: 3;
-    --index-modal: 4;
 }
 
 /*ICONS NORMALIZE*/
@@ -113,16 +98,6 @@
     transition-duration: var(--hover-duration);
 }
 
-.btn-min {
-    padding: 4px 8px;
-    font-size: var(--font-min);
-}
-
-.btn-small {
-    padding: 6px 10px;
-    font-size: var(--font-small);
-}
-
 .btn-normal {
     padding: 10px 15px;
     font-size: var(--font-normal);
@@ -157,22 +132,6 @@
     background-color: var(--hover-color-red);
 }
 
-.btn-yellow {
-    background-color: var(--color-yellow);
-}
-
-.btn-yellow:hover {
-    background-color: var(--hover-color-yellow);
-}
-
-.btn-silver {
-    background-color: var(--color-silver);
-}
-
-.btn-silver:hover {
-    background-color: var(--hover-color-silver);
-}
-
 /*APP MODAL*/
 .app_modal {
     position: fixed;
@@ -182,7 +141,6 @@
     bottom: 0;
     padding: var(--area-box) 0;
     background: rgba(100, 100, 100, 0.7);
-    z-index: var(--index-modal);
     display: none;
     overflow-y: auto;
 }
@@ -198,10 +156,8 @@
     top: 0 !important;
     background-color: #fff;
     color: var(--color-default);
-
     font-size: var(--font-normal);
     font-weight: var(--weight-bold);
-
 }
 
 .app_modal_close:hover {
@@ -214,7 +170,6 @@
     top: 0;
     background-color: #fff;
     color: var(--color-default);
-
     font-size: var(--font-normal);
     font-weight: var(--weight-bold);
 }
@@ -237,19 +192,11 @@
     border-radius: var(--radius-medium);
 }
 
-.app_modal_box .title {
-    font-size: var(--font-large);
-    font-weight: var(--weight-light);
-    color: var(--color-default);
-    padding-bottom: var(--area-normal);
-    margin: 0 0 15px 0;
-}
-
 .app_modal_box button {
     width: 100%;
 }
 
-/* MODAL DELETE */
+/* MODAL INFO DELETE */
 .app_modal_box .title {
     font-size: var(--font-medium);
     font-weight: var(--weight-light);
@@ -268,8 +215,4 @@
     text-align: center;
     margin: 20px;
     text-decoration: none;
-}
-
-.app_modal .main_content_app_header {
-    margin-bottom: 20px;
 }

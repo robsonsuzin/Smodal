@@ -52,32 +52,175 @@ Para iniciar a utilização, precisamos incluir o jquery no documento:
  ```php
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
  ```
- o arquivo ***/src/js/smodal.js***:
+ Adicionar o arquivo ***smodal.js***:
  
   ```php
- <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+ <script src="/vendor/robsonsuzin/smodal/src/js/smodal.js"></script>
   ```
+Arquivo de estilização está na pasta ***example***, lá você pode copiar para seu projeto e fazer as alterações.
 
+## Funções da Smodal:
 
-#### Create thumbnails
+Você pode passar no construtor um nome para a classe da modal ou vai atribuir a classe padrão
 
 ```php
-<?php
-require __DIR__ . "/../src/Cropper.php";
+$modal = (new \Source\Support\Smodal())
+ ```
+Função para setar a class da modal 
+```php
+->setSmodalname("modal_name_class")
+ ```
+Função para setar o html da modal - ***info*** ou ***delete***
+```php
+->setSmodaltype("delete")
+ ```
+Função para adicionar um conteudo HTML dentro da modal
+```php
+->setSmodalhtml("<p>Modal</p>")
+ ```
+Função para setar o tamanho da modal, padrão 500
+```php
+->setSmodalwidth(700)
+ ```
+Função para adicionar um botão de Imprimir no canto direito
+```php
+->setSmodalprint('true')
+ ```
+Função para setar o tipo de efeito para abrir a modal, efeito do jqueryUi
+```php
+->setSmodaleffect('bounce')
+ ```
+Função para setar qual elemento vai receber os data() do elemento que recebe evento
+```php
+->setSmodaldata('js-confirm')
+ ```
+Função para adicionar Atributo Data ao $element 
+```php
+->setSadddata($element, $data, $value)
+ ```
+Função para remover Atributo Data do $element 
+```php
+->setSremovedata($element, $data)
+ ```
+Função para adicionar Atributos ao $element
+```php
+->setSaddattr($element, $attr, $value)
+ ```
+Função para remover Atributos do $element
+```php
+->setSremoveattr($element, $attr)
+ ```
+Função para adicionar Html ao $element
+```php
+->setSaddhtml($element, $value)
+ ```
+Função para adicionar Classe ao $element
+```php
+->setSaddclass($element, $class)
+ ```
+Função para remove Classe do $element
+```php
+->setSremoveclass($element, $class)
+ ```
+Função para remove o $element
+```php
+->setSremoveelement($element)
+ ```
+Função para adiciona css ao $elemento
+```php
+->setSaddcss($element, $css, $value)
+ ``` 
+## Exemplos de utilização modal dialog para exclusão
 
-$c = new \CoffeeCode\Cropper\Cropper("patch/to/cache");
+#### Abrindo uma modal pela ação de um botão utilizando a classe Smodal
 
-echo "<img src='{$c->make("images/image.jpg", 500)}' alt='Happy Coffee' title='Happy Coffee'>";
-echo "<img src='{$c->make("images/image.jpg", 500, 300)}' alt='Happy Coffee' title='Happy Coffee'>";
+```php
+Botão que vai receber o click
+
+$modal_delete = (new \Source\Support\Smodal())
+->setSmodaltype("delete");
+->setSadddata("js-confirm", "post", url("/" . CONF_VIEW_APP . "/registration/departament"));
+->setSaddhtml(
+        "js-title",
+        "<b>Atenção:</b> Tem certeza que deseja excluir esse departamento! Essa Ação não pode ser desfeita!"
+);
+
+<a class="icon-trash-o btn btn-small btn-red" href="#" title="Deletar Departamento?"
+    <?= $modal_delete->renderString(); ?>
+    data-action="delete"
+    data-id="<?= $departament->id; ?>">Deletar</a>
+
+Script que monitora o botão:
+
+$(document).on('click', "[smodalname]", function (e) {
+    e.preventDefault();
+    $(this).smodal();
+});    
 ```
+#### Abrindo modal pelo callback do ajax
+```php
+Objeto para ser enviado ao callback
 
+$smodal = (new Smodal('app_modal_departament_address'));
+                ->setSmodalwidth(700);
+                ->setSmodaleffect("bounce");
+                ->setSmodalhtml(
+                        $this->view->render("widgets/registration/views/modal_vehicle", [
+                        "title" => $title,
+                        "vehicle" => $vehicleEdit,
+                        "departaments" => $departaments->order('name')->fetch(true)
+                ]));
+
+$json["smodal"] = $smodal->renderObject();
+
+Monitoramento do callback
+
+if (response.smodal) {
+    $(this).smodal(response.smodal);
+}
+  
+```
+#### Exemplo de Monitoramento pelo [data-post] envio por ajax
+```php
+    // Envio Ajax pelo click no data-post
+    $(document).on("click", "[data-post]", function (e) {
+        e.preventDefault();
+
+        var clicked = $(this);
+        var data = clicked.data();
+        var load = $(".ajax_load");
+
+        $.ajax({
+            url: data.post,
+            type: "POST",
+            data: data,
+            dataType: "json",
+            beforeSend: function () {
+                load.fadeIn(200).css("display", "flex");
+            },
+            success: function (response) {
+               
+                if (response.smodal) {
+                    $('.app_modal').fadeOut();
+                    $(document).smodal(response.smodal);
+                }
+
+            },
+            error: function () {
+                ajaxMessage(ajaxResponseRequestError, 5);
+                load.fadeOut();
+            }
+        });
+    });
+  
+```
 ## Contributing
 
 Please see [CONTRIBUTING](https://github.com/robsonsuzin/smodal/blob/master/CONTRIBUTING.md) for details.
 
 ## Support
 
-###### Security: If you discover any security related issues, please email cursos@upinside.com.br instead of using the issue tracker.
+###### Security: If you discover any security related issues, please email robsonsuzin@hotmail.com instead of using the issue tracker.
 
 Se você descobrir algum problema relacionado à segurança, envie um e-mail para robsonsuzin@hotmail.com em vez de usar o rastreador de problemas.
 

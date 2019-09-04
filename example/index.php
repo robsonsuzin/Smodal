@@ -1,5 +1,6 @@
 <?php
-require(__DIR__ . "/../src/source/Smodal.php");
+require(__DIR__ . "/../src/Smodal.php");
+use RobsonSuzin\Smodal\Smodal;
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -12,24 +13,24 @@ require(__DIR__ . "/../src/source/Smodal.php");
 </head>
 <body>
 <h1>Smodal</h1>
-<h2>Abrir uma modal de dialog:</h2>
+<h4>Abrir uma modal de dialog:</h4>
 <?php
-$smodalinfo = (new \SuzinCode\Smodal\Smodal())
-    ->setSmodaltype('info')
+$smodalinfo = (new Smodal())
+    ->setSmodaltemplate('info')
     ->setSaddhtml('js-title', 'Olá você tem aqui uma mensagem para apresentar!')
     ->renderString();
 ?>
 <a class="btn btn-normal btn-blue" href="#" <?= $smodalinfo; ?> >Abrir Modal</a>
 <?php
-$smodaldelete = (new \SuzinCode\Smodal\Smodal())
+$smodaldelete = (new Smodal())
     ->setSmodaltype('delete')
     ->setSaddhtml('js-title', 'Você em certeza que deseja apagar esse registro!')
     ->renderString();
 ?>
 <a class="btn btn-normal btn-red" href="#" <?= $smodaldelete; ?> >Deletar Modal</a>
-<h2>Remover um elemento da modal:</h2>
+<h4>Remover um elemento da modal:</h4>
 <?php
-$smodalremovelement = (new \SuzinCode\Smodal\Smodal())
+$smodalremovelement = (new Smodal())
     ->setSmodaltype('delete')
     ->setSaddhtml('js-title', 'Você em certeza que deseja apagar esse registro!')
     ->setSremoveelement('js-cancel')
@@ -39,10 +40,10 @@ $smodalremovelement = (new \SuzinCode\Smodal\Smodal())
 
 <a class="btn btn-normal btn-red" href="#" <?= $smodaldelete; ?> >Deletar Modal</a>
 
-<h2>Adicionando um data ou atributo em um elemento:</h2>
-<h3>Adicionar um data ao elemento 'js-confirm' ou seja o botão Apagar e Abrindo uma nova modal!</h3>
+<h3>Adicionando um data ou atributo em um elemento:</h3>
+<h4>Adicionar um data ao elemento 'js-confirm' ou seja o botão Apagar e Abrindo uma nova modal!</h4>
 <?php
-$smodaladddata = (new \SuzinCode\Smodal\Smodal())
+$smodaladddata = (new Smodal())
     ->setSmodaltype('delete')
     ->setSaddhtml('js-title', 'Você em certeza que deseja apagar esse registro!')
     ->setSaddhtml('js-confirm', 'Abrir Segunda Modal')
@@ -53,6 +54,15 @@ $smodaladddata = (new \SuzinCode\Smodal\Smodal())
     ->renderString();
 ?>
 <a class="btn btn-normal btn-blue" href="#" <?= $smodaladddata; ?> >Abrir Modal</a>
+
+<h3>Abrindo uma modal com um template 'teste':</h3>
+<?php
+$smodaltemplate = (new Smodal())
+    ->setSmodaltemplate('teste')
+    ->setSaddhtml('js-title', 'Esse conteúdo foi adicionado dinamicamente')
+    ->renderString();
+?>
+<a class="btn btn-normal btn-blue" href="#" <?= $smodaltemplate; ?> >Abrir Modal</a>
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="<?= 'js/script.js'; ?>"></script>
