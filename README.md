@@ -34,13 +34,13 @@ Smodal é uma ferramenta em PHP e Javascript para criar modais. Mantido por Robs
 Smodal is available via Composer:
 
 ```bash
-"suzincode/smodal": "^1.0"
+"robsonsuzin/smodal": "^1.0"
 ```
 
 or run
 
 ```bash
-composer require suzincode/smodal
+composer require robsonsuzin/smodal
 ```
 
 ## Documentation
