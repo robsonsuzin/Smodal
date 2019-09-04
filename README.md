@@ -1,7 +1,7 @@
 # Smodal @SuzinCode
 
 [![Maintainer](http://img.shields.io/badge/maintainer-@robsonsuzin-blue.svg?style=flat-square)](https://twitter.com/robsonsuzin)
-[![Source Code](http://img.shields.io/badge/source-suzincode/smodal-blue.svg?style=flat-square)](https://github.com/robsonsuzin/s-modal)
+[![Source Code](http://img.shields.io/badge/source-robsonsuzin/smodal-blue.svg?style=flat-square)](https://github.com/robsonsuzin/smodal)
 [![PHP from Packagist](https://img.shields.io/packagist/php-v/robsonsuzin/smodal.svg?style=flat-square)](https://packagist.org/packages/robsonsuzin/smodal)
 [![Latest Version](https://img.shields.io/github/release/robsonsuzin/Smodal.svg?style=flat-square)](https://github.com/robsonsuzin/smodal/releases)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
