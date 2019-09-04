@@ -1,5 +1,5 @@
 {
-  "name": "robsonsuzin/smodal",
+  "name": "suzincode/smodal",
   "description": "An easy way to work with modals",
   "keywords": [
     "SuzinCode",
@@ -25,7 +25,7 @@
   },
   "autoload": {
     "psr-4": {
-      "robsonsuzin\\smodal\\": "src/source"
+      "SuzinCode\\Smodal\\": "src/source/"
     }
   }
 }
