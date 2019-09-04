@@ -136,19 +136,19 @@ Função para adiciona css ao $elemento
 
 ```php
 Botão que vai receber o click
-
-$modal_delete = (new \Source\Support\Smodal())
+<?php
+$modal_delete = (new Smodal())
 ->setSmodaltype("delete");
 ->setSadddata("js-confirm", "post", url("/" . CONF_VIEW_APP . "/registration/departament"));
 ->setSaddhtml(
         "js-title",
         "<b>Atenção:</b> Tem certeza que deseja excluir esse departamento! Essa Ação não pode ser desfeita!"
 );
-
+?>
 <a class="icon-trash-o btn btn-small btn-red" href="#" title="Deletar Departamento?"
     <?= $modal_delete->renderString(); ?>
     data-action="delete"
-    data-id="<?= $departament->id; ?>">Deletar</a>
+    data-id="10">Deletar</a>
 
 Script que monitora o botão:
 
@@ -213,6 +213,49 @@ if (response.smodal) {
         });
     });
   
+```
+
+#### Exemplo de Utilização de Template
+## No seu arquivo de scripts js aonde você vai iniciar ou chamar o smodal()
+```php
+       /*
+        *  Template Smodal
+        *  Você pode criar seus templates e chamar no seu objeto Smodal :)
+        */
+        template = {};
+        template.info = `<div class="js-icon icon-notext color-blue icon-info al-center"></div>
+                    <h3 class="js-title title"></h3>
+                    <div class="ds-flex text-center" >
+                    <a class="js-cancel btn btn-normal btn-green icon-check radius transition" smodalclose="true" href="#">OK</a>
+                    <a class="js-confirm btn btn-normal btn-blue icon-pencil radius transition" smodalclose="true" href="#" >Editar</a></div>`;
+    
+        template.delete =  `<div class="js-icon icon-notext color-yellow icon-warning al-center"></div>
+                    <h3 class="js-title title"></h3>
+                    <div class="ds-flex text-center" >
+                    <a class="js-cancel btn btn-normal btn-default icon-ban radius transition" smodalclose="true" href="#">Cancelar</a>
+                    <a class="js-confirm btn btn-normal btn-red icon-trash radius transition" smodalclose="true" href="#" >Apagar</a></div>`;
+    
+        template.teste =  `<h3>Titulo da Modal</h3>
+                    <p>Um paragráfo da Modal</p>
+                    <h3 class="js-title title"></h3>
+                    <div class="ds-flex text-center" >
+                    <a class="js-cancel btn btn-normal btn-default icon-ban radius transition" smodalclose="true" href="#">Cancelar</a>
+                    <a class="js-confirm btn btn-normal btn-red icon-trash radius transition" smodalclose="true" href="#" >Apagar</a></div>`;
+    
+        /*
+        * APP MODAL
+        * Monitoramento do smodalname
+        */
+        $(document).on('click', "[smodalname]", function (e) {
+            e.preventDefault();
+            $(this).smodal([], template);
+        });
+            
+        
+        //Caso você for utilizar no callback do ajax
+        if (response.smodal) {              
+            $(document).smodal(response.smodal, template);
+        }
 ```
 ## Contributing
 
