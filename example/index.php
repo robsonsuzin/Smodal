@@ -64,6 +64,14 @@ $smodaltemplate = (new Smodal())
 ?>
 <a class="btn btn-normal btn-blue" href="#" <?= $smodaltemplate; ?> >Abrir Modal</a>
 
+<h3>Abrindo uma modal enviando conteudo html:</h3>
+<?php
+$smodalhtml = (new Smodal())
+    ->setSmodalhtml('Esse conteúdo foi adicionado dinamicamente')
+    ->renderString();
+?>
+<a class="btn btn-normal btn-blue" href="#" <?= $smodalhtml; ?> >Abrir Modal</a>
+
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="<?= 'js/script.js'; ?>"></script>
 <script src="<?= '../src/js/smodal.js'; ?>"></script>

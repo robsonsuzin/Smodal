@@ -66,7 +66,9 @@
         // Objeto da Modal
         objectmodal = $(`.${modalname}`);
 
-        options.smodalhtml = template[options.smodaltemplate];
+        if(!options.smodalhtml){
+            options.smodalhtml = template[options.smodaltemplate];
+        }
 
         if (options.smodalprint === true) {
             options.smodalprint = `<a class="icon-notext icon-print app_modal_print" href="#" onClick="window.print();"></a>`;
