@@ -1,3 +1,178 @@
+/*RESET*/
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap');
+
+* {
+    font-family: "Roboto", sans-serif;
+    /*app vars*/
+    --area-small: 10px;
+    --area-normal: calc(var(--area-small) * 2);
+    --area-box: calc(var(--area-small) * 3);
+
+    text-decoration: none;
+
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+/*VARIABLES*/
+:root {
+    --font-min: 0.8em;
+    --font-small: 0.875em;
+    --font-normal: 1em;
+    --font-medium: 1.2em;
+    --font-large: 1.4em;
+    --font-max: 2em;
+
+    --color-default: #555555;
+    --color-green: #36BA9B;
+    --color-blue: #39AED9;
+    --color-yellow: #F5B946;
+    --color-red: #D94352;
+    --color-fsphp: #1D2025;
+    --color-cloud: #f2f8f9;
+    --color-silver: #808285;
+    --color-grey: #f2f2f2;
+
+    --weight-light: 300;
+    --weight-normal: 400;
+    --weight-strong: 600;
+    --weight-bold: 700;
+    --weight-black: 900;
+
+    --hover-color-green: #61DDBC;
+    --hover-color-blue: #66D4F1;
+    --hover-color-yellow: #FCD277;
+    --hover-color-red: #F76C82;
+    --hover-color-silver: #58595b;
+    --hover-duration: 0.3s;
+
+    --gradient-green: linear-gradient(to right, #5dc6c6 0%, #54b6d7 50%, #589fd6 100%);
+    --gradient-blue: linear-gradient(to right, #17EAD9 0%, #6078EA 50%, #17EAD9 100%);
+    --gradient-red: linear-gradient(to right, #622744 0%, #C53364 50%, #622744 100%);
+    --gradient-yellow: linear-gradient(to right, #FCE38A 0%, #F38181 50%, #FCE38A 100%);
+
+    --radius-small: 2px;
+    --radius-normal: 5px;
+    --radius-medium: 10px;
+    --radius-large: 20px;
+    --radius-round: 50%;
+
+    --index-back: -1;
+    --index-fold: 2;
+    --index-menu: 3;
+    --index-modal: 4;
+}
+
+/*ICONS NORMALIZE*/
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+    position: relative !important;
+    top: .125em !Important;
+    margin-right: .4em !Important;
+}
+
+.icon-notext:before {
+    top: 0;
+    margin-right: 0 !important;;
+}
+
+.ds-flex {
+    display: flex;
+}
+
+.al-center {
+    text-align: center;
+}
+
+.color-blue {
+    color: var(--color-blue);
+}
+
+.color-yellow {
+    color: var(--color-yellow);
+}
+
+.color-red {
+    color: var(--color-red);
+}
+
+/*BUTTONS*/
+
+.btn {
+    display: inline-block;
+    background: #555555;
+    border: none;
+    cursor: pointer;
+    color: #ffffff;
+    font-weight: var(--weight-normal);
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
+    -webkit-border-radius: var(--radius-normal);
+    -moz-border-radius: var(--radius-normal);
+    border-radius: var(--radius-normal);
+    transition-duration: var(--hover-duration);
+}
+
+.btn-min {
+    padding: 4px 8px;
+    font-size: var(--font-min);
+}
+
+.btn-small {
+    padding: 6px 10px;
+    font-size: var(--font-small);
+}
+
+.btn-normal {
+    padding: 10px 15px;
+    font-size: var(--font-normal);
+}
+
+.btn-large {
+    padding: 20px 25px;
+    font-size: var(--font-large);
+}
+
+.btn-green {
+    background-color: var(--color-green);
+}
+
+.btn-green:hover {
+    background-color: var(--hover-color-green);
+}
+
+.btn-blue {
+    background-color: var(--color-blue);
+}
+
+.btn-blue:hover {
+    background-color: var(--hover-color-blue);
+}
+
+.btn-red {
+    background-color: var(--color-red);
+}
+
+.btn-red:hover {
+    background-color: var(--hover-color-red);
+}
+
+.btn-yellow {
+    background-color: var(--color-yellow);
+}
+
+.btn-yellow:hover {
+    background-color: var(--hover-color-yellow);
+}
+
+.btn-silver {
+    background-color: var(--color-silver);
+}
+
+.btn-silver:hover {
+    background-color: var(--hover-color-silver);
+}
+
 /*APP MODAL*/
 .app_modal {
     position: fixed;

@@ -27,6 +27,8 @@
 (function ($) {
     $.fn.smodal = function (options) {
 
+        thisClass = this;
+
         if (!options) {
             options = [];
             $(this).each(function () {
@@ -36,30 +38,48 @@
             });
         }
 
-        if(options.sdebug) {
+        if (options.sdebug) {
             console.log('Options', options);
         }
 
-        thisClass = this;
-
         effecttime = 200;
 
-        if($(`.${options.smodalname}`).length > 0) {
+        if ($(`.${options.smodalname}`).length > 0) {
             modalexist = true;
         } else {
             modalexist = false;
         }
 
-        if(!options.smodalwidth) {
+        if (!options.smodalwidth) {
             options.smodalwidth = 500;
         }
 
-        if (options.smodaltype !== '') {
-            options.smodalhtml = `<div class="js-icon icon-notext al-center"></div>
+        // Conta quantas modais existem
+        modalcount = $('.app_modal').length;
+
+        // Acrescenta no zindex
+        modalzindex = 900 + modalcount;
+
+        // Nome da Modal
+        modalname = (options.smodalname ? `${options.smodalname}${modalcount}` : `app_modal_dialog${modalcount}`);
+
+        // Objeto da Modal
+        objectmodal = $(`.${modalname}`);
+
+        if (options.smodaltype === 'info') {
+            options.smodalhtml = `<div class="js-icon icon-notext color-blue icon-info al-center"></div>
                 <h3 class="js-title title"></h3>
                 <div class="ds-flex text-center" >
-                <a class="js-cancel btn btn-normal radius transition" smodalclose="true" href="#">Cancelar</a>
-                <a class="js-confirm btn btn-normal radius transition" smodalclose="true" href="#" >Confirmar</a></div>`;
+                <a class="js-cancel btn btn-normal btn-green icon-check radius transition" smodalclose="true" href="#">OK</a>
+                <a class="js-confirm btn btn-normal btn-blue icon-pencil radius transition" smodalclose="true" href="#" >Editar</a></div>`;
+        }
+
+        if (options.smodaltype === 'delete' || options.smodaltype === 'delete_photo') {
+            options.smodalhtml = `<div class="js-icon icon-notext color-yellow icon-warning al-center"></div>
+                <h3 class="js-title title"></h3>
+                <div class="ds-flex text-center" >
+                <a class="js-cancel btn btn-normal btn-default icon-ban radius transition" smodalclose="true" href="#">Cancelar</a>
+                <a class="js-confirm btn btn-normal btn-red icon-trash radius transition" smodalclose="true" href="#" >Apagar</a></div>`;
         }
 
         if (options.smodalprint === true) {
@@ -67,9 +87,6 @@
         } else {
             options.smodalprint = '';
         }
-
-        modalname = (options.smodalname ? options.smodalname : 'app_modal_dialog');
-        modalzindex = (options.smodaltype !== '' ? '999' : '998');
 
         defaulthtml = `<div class="app_modal ${modalname}" smodalclose="true"
             style="left: 0; top: 0;right: 0;bottom: 0; background: rgba(100, 100, 100, 0.5); z-index:${modalzindex};">
@@ -83,22 +100,6 @@
         };
 
         settings = $.extend({}, defaults, options);
-
-        if (typeof smodalname === 'undefined') {
-            smodalname = [];
-            smodalname.unshift({name: settings.smodalname});
-        } else {
-            if (smodalname.length === 0) {
-                smodalname.unshift({name: settings.smodalname});
-            } else {
-                $.each(smodalname, function (key, value) {
-                    if (value['name'] !== settings.smodalname) {
-                        smodalname.unshift({name: settings.smodalname});
-                    }
-                });
-            }
-
-        }
 
         this.saddhtml = function (e, obj) {
             $.each(obj, function (key, value) {
@@ -159,25 +160,6 @@
             });
         };
 
-        this.setInfo = function () {
-            defaultremoveattr = 'js-confirm::data-post';
-            thisClass.setProperties(defaultremoveattr, 'sremoveattr');
-
-            defaultaddhtml = 'js-confirm::Editar|js-cancel::OK';
-            thisClass.setProperties(defaultaddhtml, 'saddhtml');
-
-            defaultaddclass = 'js-confirm::btn-blue|js-confirm::icon-pencil|js-cancel::btn-green|js-cancel::icon-check|js-icon::color-blue|js-icon::icon-info';
-            thisClass.setProperties(defaultaddclass, 'saddclass');
-        };
-
-        this.setDelete = function () {
-            defaultaddhtml = 'js-confirm::Apagar|js-cancel::Cancelar';
-            thisClass.setProperties(defaultaddhtml, 'saddhtml');
-
-            defaultaddclass = 'js-confirm::btn-red|js-confirm::icon-trash|js-cancel::btn-default|js-cancel::icon-ban|js-icon::color-yellow|js-icon::icon-warning';
-            thisClass.setProperties(defaultaddclass, 'saddclass');
-        };
-
         this.setProperties = function (s, f) {
             if (!s) {
                 return;
@@ -188,7 +170,9 @@
             $.each(s, function (key, value) {
                 obj = value.split('::');
 
-                element = $('.' + obj[0]);
+                objmodalname = $(`.${modalname}`);
+
+                element = objmodalname.find(`.${obj[0]}`);
                 elementObj = thisClass.objSplit(obj[1]);
 
                 switch (f) {
@@ -248,8 +232,9 @@
 
             $("html").css("overflow-y", "hidden");
 
-            objmodalname = $(`.${smodalname[0]['name']}`);
+            objmodalname = $(`.${modalname}`);
             box = objmodalname.children();
+
             objmodalname.css("overflow-y", "auto");
             objmodalname.css("display", "flex");
             objmodalname.fadeIn(effecttime, function () {
@@ -265,7 +250,7 @@
 
             });
 
-            if(options.sdebug) {
+            if (options.sdebug) {
                 console.log('Show', objmodalname, box);
             }
         };
@@ -276,22 +261,21 @@
 
                     $("html").css("overflow-y", "auto");
 
-                    objmodalname = $('.' + smodalname[0]['name']);
-                    objmodalname.css("overflow-y", "hidden");
-                    box = objmodalname.children();
+                    objmodal = $(this).parents('.app_modal');
+                    objmodal.css("overflow-y", "hidden");
+                    box = objmodal.children();
 
                     box.animate({"width": "250px"}, effecttime);
-                    objmodalname.fadeOut(effecttime, function () {
+                    objmodal.fadeOut(effecttime, function () {
                         if (box.length === 1 && modalexist === false) {
-                            objmodalname.remove();
-                            smodalname.splice(0, 1);
+                            objmodal.remove();
                         }
                         box.css("display", "none");
                     });
                 }
             });
 
-            if(options.sdebug) {
+            if (options.sdebug) {
                 console.log('Close', objmodalname, box, modalexist);
             }
         };
@@ -299,18 +283,8 @@
 
         return this.each(function () {
 
-            if(modalexist === false) {
+            if (modalexist === false) {
                 $('body').prepend(defaulthtml);
-            }
-
-            if (settings.smodaltype) {
-                if (settings.smodaltype === 'info') {
-                    thisClass.setInfo();
-                }
-
-                if (settings.smodaltype === 'delete' || settings.smodaltype === 'delete_photo') {
-                    thisClass.setDelete();
-                }
             }
 
             if (settings.saddhtml) {
@@ -341,7 +315,7 @@
                 thisClass.setProperties(settings.saddcss, 'saddcss');
             }
             if (settings.smodaldata) {
-                thisClass.sadddata($('.' + settings.smodaldata), thisClass.data());
+                thisClass.sadddata($(`.${settings.smodaldata}`), thisClass.data());
             }
 
             thisClass.show();
