@@ -3,7 +3,7 @@
 [![Maintainer](http://img.shields.io/badge/maintainer-@robsonsuzin-blue.svg?style=flat-square)](https://twitter.com/robsonsuzin)
 [![Source Code](http://img.shields.io/badge/source-suzincode/smodal-blue.svg?style=flat-square)](https://github.com/robsonsuzin/s-modal)
 [![PHP from Packagist](https://img.shields.io/packagist/php-v/robsonsuzin/smodal.svg?style=flat-square)](https://packagist.org/packages/robsonsuzin/smodal)
-[![Latest Version](https://img.shields.io/github/release/robsonsuzin/Smodal.svg?style=flat-square)](https://github.com/robsonvleite/cropper/releases)
+[![Latest Version](https://img.shields.io/github/release/robsonsuzin/Smodal.svg?style=flat-square)](https://github.com/robsonsuzin/smodal/releases)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
 [![Build](https://img.shields.io/scrutinizer/build/g/robsonsuzin/Smodal.svg?style=flat-square)](https://scrutinizer-ci.com/g/robsonsuzin/smodal)
 [![Quality Score](https://img.shields.io/scrutinizer/g/robsonsuzin/Smodal.svg?style=flat-square)](https://scrutinizer-ci.com/g/robsonsuzin/smodal)
