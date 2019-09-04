@@ -45,9 +45,6 @@ composer require robsonsuzin/smodal
 
 ## Documentation
 
-###### They are just two methods to do all the work. You just need to call ***make*** to create or use thumbnails of any size, or ***flush*** to free the cache of a file or the entire folder. CoffeeCode Cropper works like this:
-
-
 Para iniciar a utilização, precisamos incluir o jquery no documento:
  ```php
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
