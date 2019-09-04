@@ -1,6 +1,6 @@
 <?php
 
-namespace SuzinCode\Smodal;
+namespace RobsonSuzin\Smodal;
 
 /**
  * Class Smodal
