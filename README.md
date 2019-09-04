@@ -53,6 +53,11 @@ Para iniciar a utilização, precisamos incluir o jquery no documento:
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
  ```
  o arquivo ***/src/js/smodal.js***:
+ 
+  ```php
+ <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  ```
+
 
 #### Create thumbnails
 
@@ -66,39 +71,23 @@ echo "<img src='{$c->make("images/image.jpg", 500)}' alt='Happy Coffee' title='H
 echo "<img src='{$c->make("images/image.jpg", 500, 300)}' alt='Happy Coffee' title='Happy Coffee'>";
 ```
 
-#### Clear cache
-
-```php
-<?php
-require __DIR__ . "/../src/Cropper.php";
-
-$c = new \CoffeeCode\Cropper\Cropper("patch/to/cache");
-
-//flush by filename
-$c->flush("images/image.jpg");
-
-//flush cache folder
-$c->flush();
-```
-
 ## Contributing
 
-Please see [CONTRIBUTING](https://github.com/robsonvleite/cropper/blob/master/CONTRIBUTING.md) for details.
+Please see [CONTRIBUTING](https://github.com/robsonsuzin/smodal/blob/master/CONTRIBUTING.md) for details.
 
 ## Support
 
 ###### Security: If you discover any security related issues, please email cursos@upinside.com.br instead of using the issue tracker.
 
-Se você descobrir algum problema relacionado à segurança, envie um e-mail para cursos@upinside.com.br em vez de usar o rastreador de problemas.
+Se você descobrir algum problema relacionado à segurança, envie um e-mail para robsonsuzin@hotmail.com em vez de usar o rastreador de problemas.
 
 Thank you
 
 ## Credits
 
-- [Robson V. Leite](https://github.com/robsonvleite) (Developer)
-- [UpInside Treinamentos](https://github.com/upinside) (Team)
-- [All Contributors](https://github.com/robsonvleite/cropper/contributors) (This Rock)
+- [Robson Suzin](https://github.com/robsonsuzin) (Developer)
+- [All Contributors](https://github.com/robsonsuzin/smodal/contributors) (This Rock)
 
 ## License
 
-The MIT License (MIT). Please see [License File](https://github.com/robsonvleite/cropper/blob/master/LICENSE) for more information.
+The MIT License (MIT). Please see [License File](https://github.com/robsonsuzin/smodal/blob/master/LICENSE) for more information.
