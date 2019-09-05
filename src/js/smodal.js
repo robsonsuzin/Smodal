@@ -3,7 +3,7 @@
 * Using jQuery
 *
 * smodalname = app_modal_dialog (Abre uma modal dialog) | Outro nome adiciona conteudo html
-* smodaltype = Ex.: info delete delete_photo ( Atribui os estilos padrões da modal )
+* smodaltemplate = Ex.: info delete confome seu template criado
 * smodalhtml = Ex.: Conteúdo HTML da Modal
 * smodalwidth = Qual será o tamanho da modal - Padrão 500px - Ex: 90%
 * smodalprint = true (Adiciona um botão de print)

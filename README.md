@@ -54,7 +54,13 @@ Para iniciar a utilização, precisamos incluir o jquery no documento:
   ```php
  <script src="/vendor/robsonsuzin/smodal/src/js/smodal.js"></script>
   ```
-Arquivo de estilização está na pasta ***example***, lá você pode copiar para seu projeto e fazer as alterações.
+
+ Adicionar o arquivo ***smodal.css***:
+ 
+  ```php
+ <script src="/vendor/robsonsuzin/smodal/src/css/style.css"></script>
+  ```
+Ou vc pode copiar a estilização que está na pasta ***example***, para seu projeto e fazer as alterações.
 
 ## Funções da Smodal:
 
