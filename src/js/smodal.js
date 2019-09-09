@@ -287,10 +287,14 @@
             $(document).keydown(function (e) {
                 if(e.which === 27)
                 {
-                    objmodalclose = $(`.${modalname}`).find(".app_modal_close");
+                    objmodal = $(".app_modal");
+                    objmodalclose = $(objmodal[0]).find('.app_modal_close');
+                    console.log(objmodalclose);
                     objmodalclose.click();
                 }
+
             });
+
         }
 
 
@@ -334,6 +338,7 @@
             thisClass.show();
             thisClass.close();
             thisClass.skeydown();
+
         });
     }
 })(jQuery);
