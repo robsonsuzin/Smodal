@@ -4,7 +4,7 @@ require(__DIR__ . "/../src/Smodal.php");
 $id = filter_var($_POST['id'], FILTER_VALIDATE_INT);
 
 $smodalcallback = (new \RobsonSuzin\Smodal\Smodal())
-    ->setSmodalname('modal_teste')
+
     ->setSmodalwidth(400)
     ->setSmodaltemplate('delete')
     ->setSaddhtml('js-title', $id . ' Modal sendo aberto pelo callback do Ajax :)')

@@ -112,7 +112,8 @@ class Smodal
             'saddclass',
             'sremoveclass',
             'sremoveelement',
-            'saddcss'
+            'saddcss',
+            'sdebug'
         ];
     }
 
@@ -301,7 +302,7 @@ class Smodal
      */
     public function setSremoveelement(string $element): Smodal
     {
-        $this->sremoveelement = $element;
+        $this->sremoveelement[] = [$element];
         return $this;
     }
 

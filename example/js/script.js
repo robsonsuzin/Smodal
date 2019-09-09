@@ -5,6 +5,8 @@ $(function () {
     *  Você pode criar seus templates e chamar no seu objeto Smodal :)
     */
     template = {};
+    template.print = `<a class="icon-notext icon-print app_modal_print" href="#" onClick="window.print();"></a>`;
+
     template.info = `<div class="js-icon icon-notext color-blue icon-info al-center"></div>
                 <h3 class="js-title title"></h3>
                 <div class="ds-flex text-center" >

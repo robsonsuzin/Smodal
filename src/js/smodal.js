@@ -1,4 +1,6 @@
 /* ### Modal Class ###
+* Name: Smodal
+* Version: 1.0.4
 * Author: Robson Suzin
 * Using jQuery
 *
@@ -44,11 +46,7 @@
 
         effecttime = 200;
 
-        if ($(`.${options.smodalname}`).length > 0) {
-            modalexist = true;
-        } else {
-            modalexist = false;
-        }
+        modalexist = ($(`.${options.smodalname}`).length > 0);
 
         if (!options.smodalwidth) {
             options.smodalwidth = 500;
@@ -60,22 +58,36 @@
         // Acrescenta no zindex
         modalzindex = 900 + modalcount;
 
-        // Nome da Modal
-        modalname = (options.smodalname ? `${options.smodalname}${modalcount}` : `app_modal_dialog${modalcount}`);
+        // Verifica se a modal existe e mante o mesmo nome ou adiciona numeral ao nome da modal
+        options.smodalname = modalexist ? options.smodalname : `${options.smodalname}${modalcount}`;
+        modalname = (options.smodalname ? options.smodalname  : `app_modal_dialog${modalcount}`);
 
         // Objeto da Modal
         objectmodal = $(`.${modalname}`);
 
         if(!options.smodalhtml){
             options.smodalhtml = template[options.smodaltemplate];
+            // Verifica se foi passado o parametro template
+            if(template.length === 0 && modalexist === false) {
+                console.error("Erro: Você precisa passar o parametro template na inicialização da Smodal");
+                options.smodalhtml = "<b>Erro:</b> Você precisa passar o parametro template na inicialização da Smodal";
+            }
+            // Verifica se o template informado foi enviado para o plugin
+            if(template[options.smodaltemplate] === undefined && modalexist === false) {
+                console.error("Erro: Verifique o template informado ele não foi enviado para o plugin");
+                options.smodalhtml = "<b>Erro:</b> Verifique o template informado ele não foi enviado para o plugin";
+            }
         }
 
-        if (options.smodalprint === true) {
-            options.smodalprint = `<a class="icon-notext icon-print app_modal_print" href="#" onClick="window.print();"></a>`;
+        // Verifica e adiciona um botão de print na modal
+        if (options.smodalprint === '1' || options.smodalprint === 'true') {
+            htmlprint = '<a class="icon-notext icon-print app_modal_print" href="#" onClick="window.print();"></a>';
+            options.smodalprint = (template['print'] ? template['print'] : htmlprint);
         } else {
             options.smodalprint = '';
         }
 
+        // Html padrão da modal
         defaulthtml = `<div class="app_modal ${modalname}" smodalclose="true"
             style="z-index:${modalzindex};">
             <div class="app_modal_box" style="max-width: 94% !important;">
@@ -216,6 +228,7 @@
             return s_obj;
         };
 
+        // Inicializa a Modal
         this.show = function () {
 
             $("html").css("overflow-y", "hidden");
@@ -243,6 +256,7 @@
             }
         };
 
+        // Monitora o atributo smodalclose para fechar a modal
         this.close = function () {
             $("[smodalclose]").click(function (e) {
                 if (e.target === this) {
@@ -267,6 +281,17 @@
                 console.log('Close', objmodalname, box, modalexist);
             }
         };
+
+        // Monitora o botão ESC para fechar a modal
+        this.skeydown = function() {
+            $(document).keydown(function (e) {
+                if(e.which === 27)
+                {
+                    objmodalclose = $(`.${modalname}`).find(".app_modal_close");
+                    objmodalclose.click();
+                }
+            });
+        }
 
 
         return this.each(function () {
@@ -308,6 +333,7 @@
 
             thisClass.show();
             thisClass.close();
+            thisClass.skeydown();
         });
     }
 })(jQuery);
