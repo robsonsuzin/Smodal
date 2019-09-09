@@ -1,6 +1,6 @@
 /* ### Modal Class ###
 * Name: Smodal
-* Version: 1.0.4
+* Version: 1.0.5
 * Author: Robson Suzin
 * Using jQuery
 *
