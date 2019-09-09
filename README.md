@@ -158,7 +158,7 @@ Script que monitora o botão:
 
 $(document).on('click', "[smodalname]", function (e) {
     e.preventDefault();
-    $(this).smodal();
+    $(this).smodal([], template);
 });    
 ```
 #### Abrindo modal pelo callback do ajax
@@ -180,7 +180,7 @@ $json["smodal"] = $smodal->renderObject();
 Monitoramento do callback
 
 if (response.smodal) {
-    $(this).smodal(response.smodal);
+    $(this).smodal(response.smodal, template);
 }
   
 ```
@@ -206,7 +206,7 @@ if (response.smodal) {
                
                 if (response.smodal) {
                     $('.app_modal').fadeOut();
-                    $(document).smodal(response.smodal);
+                    $(document).smodal(response.smodal, template);
                 }
 
             },
