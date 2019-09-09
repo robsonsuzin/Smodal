@@ -183,7 +183,7 @@ class Smodal
      * @param string $smodalprint
      * @return Smodal
      */
-    public function setSmodalprint(string $smodalprint): Smodal
+    public function setSmodalprint(bool $smodalprint): Smodal
     {
         $this->smodalprint = $smodalprint;
         return $this;
