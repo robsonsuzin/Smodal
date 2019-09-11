@@ -45,18 +45,18 @@ composer require robsonsuzin/smodal
 
 ## Documentation
 
-Para iniciar a utilização, precisamos incluir o jquery no documento:
+Para iniciar a utilização, precisamos incluir o jquery no documento :
  ```php
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
  ```
  Adicionar o arquivo ***smodal.js***:
- 
+
   ```php
  <script src="/vendor/robsonsuzin/smodal/src/js/smodal.js"></script>
   ```
 
  Adicionar o arquivo ***smodal.css***:
- 
+
   ```php
 <link rel="stylesheet" href="/vendor/robsonsuzin/smodal/src/css/style.css"/>
 <link rel="stylesheet" href="/vendor/robsonsuzin/smodal/src/css/icons/styles.css"/>
@@ -70,7 +70,7 @@ Você pode passar no construtor um nome para a classe da modal ou vai atribuir a
 ```php
 $modal = (new \Source\Support\Smodal())
  ```
-Função para setar a class da modal 
+Função para setar a class da modal
 ```php
 ->setSmodalname("modal_name_class")
  ```
@@ -98,11 +98,11 @@ Função para setar qual elemento vai receber os data() do elemento que recebe e
 ```php
 ->setSmodaldata('js-confirm')
  ```
-Função para adicionar Atributo Data ao $element 
+Função para adicionar Atributo Data ao $element
 ```php
 ->setSadddata($element, $data, $value)
  ```
-Função para remover Atributo Data do $element 
+Função para remover Atributo Data do $element
 ```php
 ->setSremovedata($element, $data)
  ```
@@ -133,7 +133,7 @@ Função para remove o $element
 Função para adiciona css ao $elemento
 ```php
 ->setSaddcss($element, $css, $value)
- ``` 
+ ```
 ## Exemplos de utilização modal dialog para exclusão
 
 #### Abrindo uma modal pela ação de um botão utilizando a classe Smodal
@@ -182,7 +182,7 @@ Monitoramento do callback
 if (response.smodal) {
     $(this).smodal(response.smodal, template);
 }
-  
+
 ```
 #### Exemplo de Monitoramento pelo [data-post] envio por ajax
 ```php
@@ -203,7 +203,7 @@ if (response.smodal) {
                 load.fadeIn(200).css("display", "flex");
             },
             success: function (response) {
-               
+
                 if (response.smodal) {
                     $('.app_modal').fadeOut();
                     $(document).smodal(response.smodal, template);
@@ -216,7 +216,7 @@ if (response.smodal) {
             }
         });
     });
-  
+
 ```
 
 #### Exemplo de Utilização de Template
@@ -232,20 +232,20 @@ if (response.smodal) {
                     <div class="ds-flex text-center" >
                     <a class="js-cancel btn btn-normal btn-green icon-check radius transition" smodalclose="true" href="#">OK</a>
                     <a class="js-confirm btn btn-normal btn-blue icon-pencil radius transition" smodalclose="true" href="#" >Editar</a></div>`;
-    
+
         template.delete =  `<div class="js-icon icon-notext color-yellow icon-warning al-center"></div>
                     <h3 class="js-title title"></h3>
                     <div class="ds-flex text-center" >
                     <a class="js-cancel btn btn-normal btn-default icon-ban radius transition" smodalclose="true" href="#">Cancelar</a>
                     <a class="js-confirm btn btn-normal btn-red icon-trash radius transition" smodalclose="true" href="#" >Apagar</a></div>`;
-    
+
         template.teste =  `<h3>Titulo da Modal</h3>
                     <p>Um paragráfo da Modal</p>
                     <h3 class="js-title title"></h3>
                     <div class="ds-flex text-center" >
                     <a class="js-cancel btn btn-normal btn-default icon-ban radius transition" smodalclose="true" href="#">Cancelar</a>
                     <a class="js-confirm btn btn-normal btn-red icon-trash radius transition" smodalclose="true" href="#" >Apagar</a></div>`;
-    
+
         /*
         * APP MODAL
         * Monitoramento do smodalname
@@ -254,8 +254,8 @@ if (response.smodal) {
             e.preventDefault();
             $(this).smodal([], template);
         });
-            
-        
+
+
         //Caso você for utilizar no callback do ajax
         if (response.smodal) {              
             $(document).smodal(response.smodal, template);
