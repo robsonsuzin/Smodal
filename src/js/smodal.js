@@ -259,11 +259,16 @@
         // Monitora o atributo smodalclose para fechar a modal
         this.close = function () {
             $("[smodalclose]").click(function (e) {
+                e.preventDefault();d
                 if (e.target === this) {
 
                     $("html").css("overflow-y", "auto");
+                    if($(this).parents('.app_modal').length === 1) {
+                        objmodal = $(this).parents('.app_modal');
+                    } else {
+                        objmodal = $(this);
+                    }
 
-                    objmodal = $(this).parents('.app_modal');
                     objmodal.css("overflow-y", "hidden");
                     box = objmodal.children();
 

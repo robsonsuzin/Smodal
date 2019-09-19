@@ -108,5 +108,3 @@ $smodalexiste = (new Smodal())
 <script src="<?= '../src/js/smodal.js'; ?>"></script>
 </body>
 </html>
-
-
