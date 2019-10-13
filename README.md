@@ -59,7 +59,7 @@ Para iniciar a utilização, precisamos incluir o jquery no documento :
 
   ```php
 <link rel="stylesheet" href="/vendor/robsonsuzin/smodal/src/css/style.css"/>
-<link rel="stylesheet" href="/vendor/robsonsuzin/smodal/src/css/icons/styles.css"/>
+<link rel="stylesheet" href="/vendor/robsonsuzin/smodal/src/css/icons/icons.css"/>
  ```
 Ou vc pode copiar a estilização que está na pasta ***example***, para seu projeto e fazer as alterações.
 
@@ -149,7 +149,7 @@ $modal_delete = (new Smodal())
         "<b>Atenção:</b> Tem certeza que deseja excluir esse departamento! Essa Ação não pode ser desfeita!"
 );
 ?>
-<a class="icon-trash-o btn btn-small btn-red" href="#" title="Deletar Departamento?"
+<a class="icon-trash-o btn btn-small btn-danger" href="#" title="Deletar Departamento?"
     <?= $modal_delete->renderString(); ?>
     data-action="delete"
     data-id="10">Deletar</a>
@@ -165,7 +165,7 @@ $(document).on('click', "[smodalname]", function (e) {
 ```php
 Objeto para ser enviado ao callback
 
-$smodal = (new Smodal('app_modal_departament_address'));
+$smodal = (new Smodal('suzin_smodal_departament_address'));
                 ->setSmodalwidth(700);
                 ->setSmodaleffect("bounce");
                 ->setSmodalhtml(
@@ -205,7 +205,7 @@ if (response.smodal) {
             success: function (response) {
 
                 if (response.smodal) {
-                    $('.app_modal').fadeOut();
+                    $('.suzin_smodal').fadeOut();
                     $(document).smodal(response.smodal, template);
                 }
 
@@ -227,24 +227,24 @@ if (response.smodal) {
         *  Você pode criar seus templates e chamar no seu objeto Smodal :)
         */
         template = {};
-        template.info = `<div class="js-icon icon-notext color-blue icon-info al-center"></div>
+        template.info = `<div class="js-icon icon-notext text-info icon-info-circle text-center"></div>
                     <h3 class="js-title title"></h3>
-                    <div class="ds-flex text-center" >
-                    <a class="js-cancel btn btn-normal btn-green icon-check radius transition" smodalclose="true" href="#">OK</a>
-                    <a class="js-confirm btn btn-normal btn-blue icon-pencil radius transition" smodalclose="true" href="#" >Editar</a></div>`;
+                    <div class="d-flex text-center" >
+                    <a class="js-cancel btn btn-success icon-check radius transition" smodalclose="true" href="#">OK</a>
+                    <a class="js-confirm btn btn-info icon-pencil radius transition" smodalclose="true" href="#" >Editar</a></div>`;
 
-        template.delete =  `<div class="js-icon icon-notext color-yellow icon-warning al-center"></div>
+        template.delete =  `<div class="js-icon icon-notext text-warning icon-exclamation-triangle text-center"></div>
                     <h3 class="js-title title"></h3>
-                    <div class="ds-flex text-center" >
-                    <a class="js-cancel btn btn-normal btn-default icon-ban radius transition" smodalclose="true" href="#">Cancelar</a>
-                    <a class="js-confirm btn btn-normal btn-red icon-trash radius transition" smodalclose="true" href="#" >Apagar</a></div>`;
+                    <div class="d-flex text-center" >
+                    <a class="js-cancel btn btn-default icon-ban radius transition" smodalclose="true" href="#">Cancelar</a>
+                    <a class="js-confirm btn btn-danger icon-trash radius transition" smodalclose="true" href="#" >Apagar</a></div>`;
 
         template.teste =  `<h3>Titulo da Modal</h3>
                     <p>Um paragráfo da Modal</p>
                     <h3 class="js-title title"></h3>
-                    <div class="ds-flex text-center" >
-                    <a class="js-cancel btn btn-normal btn-default icon-ban radius transition" smodalclose="true" href="#">Cancelar</a>
-                    <a class="js-confirm btn btn-normal btn-red icon-trash radius transition" smodalclose="true" href="#" >Apagar</a></div>`;
+                    <div class="d-flex text-center" >
+                    <a class="js-cancel btn btn-default icon-ban radius transition" smodalclose="true" href="#">Cancelar</a>
+                    <a class="js-confirm btn btn-danger icon-trash radius transition" smodalclose="true" href="#" >Apagar</a></div>`;
 
         /*
         * APP MODAL

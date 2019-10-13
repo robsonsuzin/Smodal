@@ -92,7 +92,7 @@ class Smodal
     /**
      * Smodal constructor.
      */
-    public function __construct(string $smodalname = 'app_modal_dialog')
+    public function __construct(string $smodalname = 'suzin_smodal_dialog')
     {
         $this->setSmodalname($smodalname);
 
