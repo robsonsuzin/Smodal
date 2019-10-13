@@ -9,7 +9,7 @@ use RobsonSuzin\Smodal\Smodal;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="stylesheet" href="<?= "css/style.css"; ?>"/>
+    <link rel="stylesheet" href="<?= "css/smodal.css"; ?>"/>
     <link rel="stylesheet" href="<?= "css/icons/icons.css"; ?>"/>
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap" rel="stylesheet">
     <title>Exemplo da Smodal</title>

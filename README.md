@@ -58,8 +58,8 @@ Para iniciar a utilização, precisamos incluir o jquery no documento :
  Adicionar o arquivo ***smodal.css***:
 
   ```php
-<link rel="stylesheet" href="/vendor/robsonsuzin/smodal/src/css/style.css"/>
-<link rel="stylesheet" href="/vendor/robsonsuzin/smodal/src/css/icons/icons.css"/>
+<link rel="stylesheet" href="/vendor/robsonsuzin/smodal/example/css/smodal.css"/>
+<link rel="stylesheet" href="/vendor/robsonsuzin/smodal/example/css/icons/icons.css"/>
  ```
 Ou vc pode copiar a estilização que está na pasta ***example***, para seu projeto e fazer as alterações.
 
