@@ -9,16 +9,18 @@ use RobsonSuzin\Smodal\Smodal;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="stylesheet" href="<?= "css/style.css"; ?>"/>
-    <link rel="stylesheet" href="<?= "css/icons/styles.css"; ?>"/>
+    <link rel="stylesheet" href="<?= "css/smodal.css"; ?>"/>
+    <link rel="stylesheet" href="<?= "css/icons/icons.css"; ?>"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap" rel="stylesheet">
     <title>Exemplo da Smodal</title>
+    <style>body {font-family: 'Roboto', sans-serif;}</style>
 </head>
 <body>
 
-<div class="app_modal app_modal_existe" smodalclose="true"
+<div class="suzin_smodal suzin_smodal_existe" smodalclose="true"
      style="z-index:999;">
-    <div class="app_modal_box" style="max-width: 94% !important;">
-        <div><a class="app_modal_close icon-times icon-notext" smodalclose="true" style="top: 5px; right: 0;"
+    <div class="suzin_smodal_box" style="max-width: 94% !important;">
+        <div><a class="suzin_smodal_close icon-times icon-notext" smodalclose="true" style="top: 5px; right: 0;"
                 href="#"></a>
         </div>
         <h1>Modal existente no DOM</h1>
@@ -33,7 +35,7 @@ $smodalinfo = (new Smodal())
     ->setSaddhtml('js-title', 'Olá você tem aqui uma mensagem para apresentar!')
     ->renderString();
 ?>
-<a class="btn btn-normal btn-blue" href="#" <?= $smodalinfo; ?> >Abrir Modal de Informação</a>
+<a class="btn btn-info" href="#" <?= $smodalinfo; ?> >Abrir Modal de Informação</a>
 <?php
 $smodaldelete = (new Smodal())
     ->setSmodaltype('delete')
@@ -41,7 +43,7 @@ $smodaldelete = (new Smodal())
     ->renderString();
 ?>
 
-<a class="btn btn-normal btn-red" href="#" <?= $smodaldelete; ?> >Abrir Modal de Delete</a>
+<a class="btn btn-danger" href="#" <?= $smodaldelete; ?> >Abrir Modal de Delete</a>
 <hr>
 <h4>Remover elemento da modal: Ex.: Dois Botões</h4>
 <?php
@@ -52,7 +54,7 @@ $smodalremovelement = (new Smodal())
     ->setSremoveelement('js-confirm')
     ->renderString();
 ?>
-<a class="btn btn-normal btn-blue" href="#" <?= $smodalremovelement; ?> >Abrir Modal Removendo Elemento</a>
+<a class="btn btn-info" href="#" <?= $smodalremovelement; ?> >Abrir Modal Removendo Elemento</a>
 <hr>
 <h3>Abrindo Modal e abrindo uma segunda modal no callback do Ajax</h3>
 <p>Adicionar data ao elemento 'js-confirm' ou seja o botão Apagar e Abrindo uma nova modal no callback do ajax!</p>
@@ -67,7 +69,7 @@ $smodaladddata = (new Smodal())
     ->setSremoveelement('js-cancel')
     ->renderString();
 ?>
-<a class="btn btn-normal btn-blue" href="#" <?= $smodaladddata; ?> >Abrir Modal</a>
+<a class="btn btn-info" href="#" <?= $smodaladddata; ?> >Abrir Modal</a>
 <hr>
 <h4>Abrindo uma modal com um template 'teste':</h4>
 <?php
@@ -76,7 +78,7 @@ $smodaltemplate = (new Smodal())
     ->setSaddhtml('js-title', 'Esse conteúdo foi adicionado dinamicamente')
     ->renderString();
 ?>
-<a class="btn btn-normal btn-blue" href="#" <?= $smodaltemplate; ?> >Abrir Modal</a>
+<a class="btn btn-info" href="#" <?= $smodaltemplate; ?> >Abrir Modal</a>
 <hr>
 <h4>Abrindo uma modal enviando conteudo html:</h4>
 <?php
@@ -84,7 +86,7 @@ $smodalhtml = (new Smodal())
     ->setSmodalhtml('Esse conteúdo foi adicionado dinamicamente')
     ->renderString();
 ?>
-<a class="btn btn-normal btn-blue" href="#" <?= $smodalhtml; ?> >Abrir Modal</a>
+<a class="btn btn-info" href="#" <?= $smodalhtml; ?> >Abrir Modal</a>
 <hr>
 <h4>Adicionando um botão de Print na Modal:</h4>
 <?php
@@ -93,15 +95,15 @@ $smodalprint = (new Smodal())
     ->setSmodalprint(true)
     ->renderString();
 ?>
-<a class="btn btn-normal btn-blue" href="#" <?= $smodalprint; ?> >Abrir Modal</a>
+<a class="btn btn-info" href="#" <?= $smodalprint; ?> >Abrir Modal</a>
 <hr>
 <h4>Abrindo uma modal Existente no DOM</h4>
 <?php
 $smodalexiste = (new Smodal())
-    ->setSmodalname('app_modal_existe')
+    ->setSmodalname('suzin_smodal_existe')
     ->renderString();
 ?>
-<a class="btn btn-normal btn-blue" href="#" <?= $smodalexiste; ?> >Abrir Modal</a>
+<a class="btn btn-info" href="#" <?= $smodalexiste; ?> >Abrir Modal</a>
 <hr>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="<?= 'js/script.js'; ?>"></script>

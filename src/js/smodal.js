@@ -4,7 +4,7 @@
 * Author: Robson Suzin
 * Using jQuery
 *
-* smodalname = app_modal_dialog (Abre uma modal dialog) | Outro nome adiciona conteudo html
+* smodalname = suzin_smodal_dialog (Abre uma modal dialog) | Outro nome adiciona conteudo html
 * smodaltemplate = Ex.: info delete confome seu template criado
 * smodalhtml = Ex.: Conteúdo HTML da Modal
 * smodalwidth = Qual será o tamanho da modal - Padrão 500px - Ex: 90%
@@ -53,14 +53,14 @@
         }
 
         // Conta quantas modais existem
-        modalcount = $('.app_modal').length;
+        modalcount = $('.suzin_smodal').length;
 
         // Acrescenta no zindex
         modalzindex = 900 + modalcount;
 
         // Verifica se a modal existe e mante o mesmo nome ou adiciona numeral ao nome da modal
         options.smodalname = modalexist ? options.smodalname : `${options.smodalname}${modalcount}`;
-        modalname = (options.smodalname ? options.smodalname  : `app_modal_dialog${modalcount}`);
+        modalname = (options.smodalname ? options.smodalname  : `suzin_smodal_dialog${modalcount}`);
 
         // Objeto da Modal
         objectmodal = $(`.${modalname}`);
@@ -81,17 +81,17 @@
 
         // Verifica e adiciona um botão de print na modal
         if (options.smodalprint === '1' || options.smodalprint === 'true') {
-            htmlprint = '<a class="icon-notext icon-print app_modal_print" href="#" onClick="window.print();"></a>';
+            htmlprint = '<a class="icon-notext icon-print suzin_smodal_print" href="#" onClick="window.print();"></a>';
             options.smodalprint = (template['print'] ? template['print'] : htmlprint);
         } else {
             options.smodalprint = '';
         }
 
         // Html padrão da modal
-        defaulthtml = `<div class="app_modal ${modalname}" smodalclose="true"
+        defaulthtml = `<div class="suzin_smodal ${modalname}" smodalclose="true"
             style="z-index:${modalzindex};">
-            <div class="app_modal_box" style="max-width: 94% !important;">
-            <div><a class="app_modal_close icon-times icon-notext" smodalclose="true" style="top: 5px; right: 0;"
+            <div class="suzin_smodal_box" style="max-width: 94% !important;">
+            <div><a class="suzin_smodal_close icon-times icon-notext" smodalclose="true" style="top: 5px; right: 0;"
             href="#"></a>${options.smodalprint}</div>${options.smodalhtml}</div></div>`;
 
         defaults = {
@@ -263,8 +263,8 @@
                 if (e.target === this) {
 
                     $("html").css("overflow-y", "auto");
-                    if($(this).parents('.app_modal').length === 1) {
-                        objmodal = $(this).parents('.app_modal');
+                    if($(this).parents('.suzin_smodal').length === 1) {
+                        objmodal = $(this).parents('.suzin_smodal');
                     } else {
                         objmodal = $(this);
                     }
@@ -292,8 +292,8 @@
             $(document).keydown(function (e) {
                 if(e.which === 27)
                 {
-                    objmodal = $(".app_modal");
-                    objmodalclose = $(objmodal[0]).find('.app_modal_close');
+                    objmodal = $(".suzin_smodal");
+                    objmodalclose = $(objmodal[0]).find('.suzin_smodal_close');
                     console.log(objmodalclose);
                     objmodalclose.click();
                 }

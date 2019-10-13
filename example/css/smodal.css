@@ -1,0 +1,214 @@
+/*VARIABLES*/
+:root {
+    --font-size: 1rem;
+    --font-md: 1.25rem;
+    --font-lg: 1.5rem;
+
+    --color-default: #555555;
+    --color-success: #01C851;
+    --color-danger: #FF3548;
+    --color-warning: #FF8800;
+    --color-info: #33B5E7;
+
+    --weight-light: 300;
+    --weight-normal: 400;
+    --weight-bold: 700;
+
+    --hover-color-success: #33D275;
+    --hover-color-danger: #FF6B79;
+    --hover-color-warning: #FFC95C;
+    --hover-color-info: #5CC4EB;
+
+    --radius: 0.3125rem;
+    --radius-md: 0.625rem;
+
+    --spacing: calc(var(--spacing-sm) * 2);
+    --spacing-sm: 0.625rem;
+    --spacing-lg: calc(var(--spacing-sm) * 3);
+}
+
+/*Icons Normalize*/
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+    position: relative !important;
+    top: .125em !Important;
+    margin-right: .4em !Important;
+}
+
+.icon-notext:before {
+    top: 0;
+    margin-right: 0 !important;;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/*Colors*/
+.text-success {
+    color: var(--color-success);
+}
+
+.text-danger {
+    color: var(--color-danger);
+}
+
+.text-warning {
+    color: var(--color-warning);
+}
+
+.text-info {
+    color: var(--color-info);
+}
+
+/*Buttons Colors*/
+.btn-success {
+    background-color: var(--color-success) !important;
+}
+
+.btn-success:hover {
+    background-color: var(--hover-color-success) !important;
+}
+
+.btn-danger {
+    background-color: var(--color-danger) !important;
+}
+
+.btn-danger:hover {
+    background-color: var(--hover-color-danger) !important;
+}
+
+.btn-warning {
+    background-color: var(--color-warning) !important;
+}
+
+.btn-warning:hover {
+    background-color: var(--hover-color-warning) !important;
+}
+
+.btn-info {
+    background-color: var(--color-info) !important;
+}
+
+.btn-info:hover {
+    background-color: var(--hover-color-info) !important;
+}
+
+/*Buttons*/
+.btn {
+    display: inline-block;
+    font-weight: var(--weight-normal);
+    color: #FFFFFF;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: var(--color-default);
+    border: 1px solid transparent;
+    padding: 0.625rem 0.9375rem;
+    font-size: var(--font-size);
+    line-height: 1.5;
+    -webkit-border-radius: var(--radius);
+    -moz-border-radius: var(--radius);
+    border-radius: var(--radius);
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+    cursor: pointer;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+}
+
+.btn-lg {
+    padding: 20px 25px;
+    font-size: var(--font-lg);
+}
+
+/*robsonsuzin/smodal*/
+.suzin_smodal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    padding: var(--spacing-lg) 0;
+    background: rgba(100, 100, 100, 0.7);
+    display: none;
+    overflow-y: auto;
+}
+
+.suzin_smodal .message {
+    text-align: center;
+    margin-bottom: var(--spacing);
+}
+
+.suzin_smodal_close {
+    position: absolute;
+    right: 0;
+    top: 0 !important;
+    background-color: #fff;
+    color: var(--color-default);
+    font-size: var(--font-size);
+    font-weight: var(--weight-bold);
+}
+
+.suzin_smodal_close:hover {
+    color: var(--color-danger);
+}
+
+.suzin_smodal_print {
+    position: absolute;
+    right: 20px;
+    top: 0;
+    background-color: #fff;
+    color: var(--color-default);
+    font-size: var(--font-size);
+    font-weight: var(--weight-bold);
+}
+
+.suzin_smodal_print:hover {
+    color: var(--color-info);
+}
+
+.suzin_smodal_box {
+    display: none;
+    position: relative;
+    margin: auto;
+    width: 500px;
+    max-width: 94%;
+    padding: calc(var(--spacing-lg) * 1.3);
+    background: #ffffff;
+
+    -webkit-border-radius: var(--radius-md);
+    -moz-border-radius: var(--radius-md);
+    border-radius: var(--radius-md);
+}
+
+.suzin_smodal_box button {
+    width: 100%;
+}
+
+.suzin_smodal_box .title {
+    font-size: var(--font-md);
+    font-weight: var(--weight-light);
+    line-height: 1.5em;
+    text-align: center;
+    border-bottom: none;
+    margin: 0;
+}
+
+.suzin_smodal_box .js-icon {
+    font-size: 5em;
+}
+
+.suzin_smodal_box a {
+    flex-basis: 100%;
+    text-align: center;
+    margin: 20px;
+    text-decoration: none;
+}
