@@ -236,14 +236,14 @@ if (response.smodal) {
         template.delete =  `<div class="js-icon icon-notext text-warning icon-exclamation-triangle text-center"></div>
                     <h3 class="js-title title"></h3>
                     <div class="d-flex text-center" >
-                    <a class="js-cancel btn btn-default icon-ban radius transition" smodalclose="true" href="#">Cancelar</a>
+                    <a class="js-cancel btn icon-ban radius transition" smodalclose="true" href="#">Cancelar</a>
                     <a class="js-confirm btn btn-danger icon-trash radius transition" smodalclose="true" href="#" >Apagar</a></div>`;
 
         template.teste =  `<h3>Titulo da Modal</h3>
                     <p>Um paragráfo da Modal</p>
                     <h3 class="js-title title"></h3>
                     <div class="d-flex text-center" >
-                    <a class="js-cancel btn btn-default icon-ban radius transition" smodalclose="true" href="#">Cancelar</a>
+                    <a class="js-cancel btn icon-ban radius transition" smodalclose="true" href="#">Cancelar</a>
                     <a class="js-confirm btn btn-danger icon-trash radius transition" smodalclose="true" href="#" >Apagar</a></div>`;
 
         /*
