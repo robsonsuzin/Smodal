@@ -65,52 +65,19 @@
     color: var(--color-info);
 }
 
-/*Buttons Colors*/
-.btn-success {
-    background-color: var(--color-success) !important;
-}
-
-.btn-success:hover {
-    background-color: var(--hover-color-success) !important;
-}
-
-.btn-danger {
-    background-color: var(--color-danger) !important;
-}
-
-.btn-danger:hover {
-    background-color: var(--hover-color-danger) !important;
-}
-
-.btn-warning {
-    background-color: var(--color-warning) !important;
-}
-
-.btn-warning:hover {
-    background-color: var(--hover-color-warning) !important;
-}
-
-.btn-info {
-    background-color: var(--color-info) !important;
-}
-
-.btn-info:hover {
-    background-color: var(--hover-color-info) !important;
-}
-
 /*Buttons*/
 .btn {
     display: inline-block;
     font-weight: var(--weight-normal);
-    color: #FFFFFF;
+    color: #FFFFFF !important;
     text-align: center;
     vertical-align: middle;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    background-color: var(--color-default);
-    border: 1px solid transparent;
+    background-color: var(--color-default) !important;
+    border: 1px solid var(--color-default) !important;
     padding: 0.625rem 0.9375rem;
     font-size: var(--font-size);
     line-height: 1.5;
@@ -127,6 +94,47 @@
 .btn-lg {
     padding: 20px 25px;
     font-size: var(--font-lg);
+}
+
+/*Buttons Colors*/
+.btn-success {
+    background-color: var(--color-success) !important;
+    border-color: var(--color-success) !important;
+}
+
+.btn-success:hover {
+    background-color: var(--hover-color-success) !important;
+    border-color: var(--hover-color-success) !important;
+}
+
+.btn-danger {
+    background-color: var(--color-danger) !important;
+    border-color: var(--color-danger) !important;
+}
+
+.btn-danger:hover {
+    background-color: var(--hover-color-danger) !important;
+    border-color: var(--hover-color-danger) !important;
+}
+
+.btn-warning {
+    background-color: var(--color-warning) !important;
+    border-color: var(--color-warning) !important;
+}
+
+.btn-warning:hover {
+    background-color: var(--hover-color-warning) !important;
+    border-color: var(--hover-color-warning) !important;
+}
+
+.btn-info {
+    background-color: var(--color-info) !important;
+    border-color: var(--color-info) !important;
+}
+
+.btn-info:hover {
+    background-color: var(--hover-color-info) !important;
+    border-color: var(--hover-color-info) !important;
 }
 
 /*robsonsuzin/smodal*/
@@ -210,5 +218,5 @@
     flex-basis: 100%;
     text-align: center;
     margin: 20px;
-    text-decoration: none;
+    text-decoration: none !important;
 }
