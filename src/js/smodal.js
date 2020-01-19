@@ -259,7 +259,6 @@
         // Monitora o atributo smodalclose para fechar a modal
         this.close = function () {
             $("[smodalclose]").click(function (e) {
-                e.preventDefault();
                 if (e.target === this) {
 
                     $("html").css("overflow-y", "auto");
