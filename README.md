@@ -142,8 +142,8 @@ Função para adiciona css ao $elemento
 Botão que vai receber o click
 <?php
 $modal_delete = (new Smodal())
-->setSmodaltype("delete");
-->setSadddata("js-confirm", "post", url("/" . CONF_VIEW_APP . "/registration/departament"));
+->setSmodaltype("delete")
+->setSadddata("js-confirm", "post", url("/" . CONF_VIEW_APP . "/registration/departament"))
 ->setSaddhtml(
         "js-title",
         "<b>Atenção:</b> Tem certeza que deseja excluir esse departamento! Essa Ação não pode ser desfeita!"
@@ -165,9 +165,9 @@ $(document).on('click', "[smodalname]", function (e) {
 ```php
 Objeto para ser enviado ao callback
 
-$smodal = (new Smodal('suzin_smodal_departament_address'));
-                ->setSmodalwidth(700);
-                ->setSmodaleffect("bounce");
+$smodal = (new Smodal('suzin_smodal_departament_address'))
+                ->setSmodalwidth(700)
+                ->setSmodaleffect("bounce")
                 ->setSmodalhtml(
                         $this->view->render("widgets/registration/views/modal_vehicle", [
                         "title" => $title,
