@@ -78,7 +78,10 @@ class Smodal
      * @var
      */
     private $saddcss;
-
+    /**
+     * @var
+     */
+    private $sfocus;
     /**
      * @var
      */
@@ -113,6 +116,7 @@ class Smodal
             'sremoveclass',
             'sremoveelement',
             'saddcss',
+            'sfocus',
             'sdebug'
         ];
     }
@@ -316,6 +320,18 @@ class Smodal
     public function setSaddcss(string $element, string $css, string $value): Smodal
     {
         $this->saddcss[] = [$element => [$css => $value]];
+        return $this;
+    }
+
+    /**
+     * @param string $element
+     * @param string $css
+     * @param string $value
+     * @return Smodal
+     */
+    public function setSfocus(string $element): Smodal
+    {
+        $this->sfocus = $element;
         return $this;
     }
 

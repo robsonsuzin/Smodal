@@ -27,6 +27,22 @@ use RobsonSuzin\Smodal\Smodal;
     </div>
 </div>
 
+<div class="suzin_smodal suzin_smodal_focus" smodalclose="true"
+     style="z-index:999;">
+    <div class="suzin_smodal_box" style="max-width: 94% !important;">
+        <div><a class="suzin_smodal_close icon-times icon-notext" smodalclose="true" style="top: 5px; right: 0;"
+                href="#"></a>
+        </div>
+        <h1>Modal existente no DOM</h1>
+        <form name="form">
+            <input type="text" name="input">
+
+            <input type="text" name="input2">
+        </form>
+
+    </div>
+</div>
+
 <h1>Smodal</h1>
 <h4>Abrir uma modal de dialog:</h4>
 <?php
@@ -104,6 +120,25 @@ $smodalexiste = (new Smodal())
     ->renderString();
 ?>
 <a class="btn btn-info" href="#" <?= $smodalexiste; ?> >Abrir Modal</a>
+<hr>
+
+<h4>Abrindo uma modal Existente no DOM setando focus</h4>
+<?php
+$smodalfocus = (new Smodal())
+    ->setSmodalname('suzin_smodal_focus')
+    ->setSdebug(true)
+    ->setSfocus('input')
+    ->renderString();
+?>
+<a class="btn btn-info" href="#" <?= $smodalfocus; ?> >Abrir Modal Focus input 1</a>
+<?php
+$smodalfocus = (new Smodal())
+    ->setSmodalname('suzin_smodal_focus')
+    ->setSdebug(true)
+    ->setSfocus('input2')
+    ->renderString();
+?>
+<a class="btn btn-info" href="#" <?= $smodalfocus; ?> >Abrir Modal Focus input 2</a>
 <hr>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="<?= 'js/script.js'; ?>"></script>

@@ -160,6 +160,10 @@
             });
         };
 
+        this.sfocus = function (e) {
+            $("input[name='"+e+"']")[0].focus();
+        };
+
         this.setProperties = function (s, f) {
             if (!s) {
                 return;
@@ -195,7 +199,7 @@
                         thisClass.sremoveattr(element, elementObj);
                         break;
                     case "sremoveelement":
-                        thisClass.sremoveelement(element, elementObj);
+                        thisClass.sremoveelement(element);
                         break;
                     case "saddhtml":
                         thisClass.saddhtml(element, elementObj);
@@ -301,7 +305,6 @@
 
         }
 
-
         return this.each(function () {
 
             if (modalexist === false) {
@@ -343,6 +346,9 @@
             thisClass.close();
             thisClass.skeydown();
 
+            if (settings.sfocus) {
+                thisClass.sfocus(settings.sfocus);
+            }
         });
     }
 })(jQuery);
