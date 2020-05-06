@@ -161,7 +161,10 @@
         };
 
         this.sfocus = function (e) {
-            $("input[name='"+e+"']")[0].focus();
+            focus = function () {
+                $(`input[name='${e}']`).focus();
+            }
+            setTimeout(focus, 1000);
         };
 
         this.setProperties = function (s, f) {
