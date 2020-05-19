@@ -1,4 +1,4 @@
-# Smodal @SuzinCodex
+# Smodal @SuzinCode
 
 [![Maintainer](http://img.shields.io/badge/maintainer-@robsonsuzin-blue.svg?style=flat-square)](https://twitter.com/robsonsuzin)
 [![Source Code](http://img.shields.io/badge/source-robsonsuzin/smodal-blue.svg?style=flat-square)](https://github.com/robsonsuzin/smodal)
